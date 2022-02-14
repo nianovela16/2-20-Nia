@@ -17,18 +17,22 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+     return view('home', [
+         "title" => "Home"
+     ]);
+});
 
 Route::get('/about', function () {
     return view('about', [
+        "title" => "About",
         "nama" => "Nia Novela Ariandini",
         "email" => "novelariandini@gmail.com",
         "gambar" => "nia1_profil.jpeg"
     ]);
 });
-
-// Route::get('/gallery', function () {
-//     return view('gallery');
-// });
+Route::get('/gallery', function () {
+     return view('gallery', [
+         "title" => "Gallery"
+     ]);
+});
