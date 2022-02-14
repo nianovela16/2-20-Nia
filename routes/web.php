@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+use App\Http\Controllers\ContactController;
+
 Route::get('/', function () {
      return view('home', [
          "title" => "Home"
@@ -31,8 +33,12 @@ Route::get('/about', function () {
         "gambar" => "nia1_profil.jpeg"
     ]);
 });
+
 Route::get('/gallery', function () {
-     return view('gallery', [
-         "title" => "Gallery"
-     ]);
+    return view('gallery', [
+        "title" => "Gallery",
+
+    ]);
 });
+
+Route::resource('/contacts', ContactController::class);
