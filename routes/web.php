@@ -42,9 +42,11 @@ Route::get('/gallery', function () {
 });
 
 Route::resource('/contacts', ContactController::class);
-
+Route::get('/delete_contact/{id}', ContactController::class . '@destroy');
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/contacts/index', [ContactController::class, 'index'])->name('contacts.index');
+    Route::get('/contacts/edit/{$id}', [ContactController::class, 'edit'])->name('contacts.edit');
 });
